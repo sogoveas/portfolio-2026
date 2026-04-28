@@ -27,7 +27,6 @@ body{
   color:var(--ink);
 }
 
-/* BACK */
 .back{
   position:fixed;
   top:24px;
@@ -40,9 +39,8 @@ body{
   z-index:100;
 }
 
-/* HEADER */
 .header{
-  padding:100px 48px 30px; /* slightly tighter */
+  padding:100px 48px 30px; 
   border-bottom:1px solid rgba(0,0,0,0.1);
 }
 
@@ -60,7 +58,7 @@ body{
 }
 
 .poster-section{
-  min-height:calc(100vh - 240px); /* fills remaining screen */
+  min-height:calc(100vh - 240px);
   display:flex;
   justify-content:center;
   align-items:center;
@@ -81,7 +79,19 @@ body{
   margin:0 auto;
   border:1px solid rgba(0,0,0,0.08);
   background:white;
-  box-shadow:0 20px 60px rgba(0,0,0,0.08); /* subtle polish */
+  box-shadow:0 20px 60px rgba(0,0,0,0.08); 
+}
+
+footer {
+  background: var(--ink);
+  padding: 32px 48px;
+  display: flex;
+  align-items: center;
+}
+
+footer span {
+  font-size: 0.8rem;
+  color: rgba(245,241,232,0.3);
 }
 
 </style>
@@ -99,12 +109,16 @@ body{
   </p>
 </div>
 
-<!-- POSTER -->
 <div class="poster-section">
   <div class="poster">
     <img src="images/research/rethinking-autism-diagnosis.png" alt="EEG Autism Research Poster">
   </div>
 </div>
+
+
+<footer>
+  <span>© 2026 Sonia Goveas</span>
+</footer>
 
 </body>
 </html>

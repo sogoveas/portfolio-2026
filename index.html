@@ -440,13 +440,25 @@
       justify-content: space-between;
       align-items: center;
     }
+
     footer span {
       font-size: 0.8rem;
       color: rgba(245,241,232,0.3);
     }
-    .footer-socials { display: flex; gap: 20px; }
-    .footer-socials a { color: rgba(245,241,232,0.4); font-size: 1rem; transition: color 0.2s; text-decoration: none; }
-    .footer-socials a:hover { color: var(--rust); }
+
+    .footer-socials { 
+      display: flex; 
+      gap: 20px; 
+    }
+    .footer-socials a { 
+      color: rgba(245,241,232,0.4); 
+      font-size: 1rem; 
+      transition: color 0.2s; 
+      text-decoration: none; }
+
+    .footer-socials a:hover { 
+      color: var(--rust); 
+    }
 
     @media (max-width: 768px) {
       .hero, .about-strip, .projects-grid, .skills-section { grid-template-columns: 1fr; }
@@ -566,7 +578,7 @@
           <span class="project-tag">Research</span>
         </div>
         <div class="project-info">
-          <h3>Research Projects</h3>
+          <h3>Research</h3>
           <p>A machine learning pipeline analyzing infant EEG time-series data through frequency decomposition and nonlinear dynamical features to enable early ASD detection, severity scoring, and subtype identification.</p>
           <span class="project-link">View Work →</span>
         </div>
@@ -693,7 +705,6 @@
 
     </div>
   </section>
-
 
   <section id="contact" class="contact-section">
     <div class="contact-links">

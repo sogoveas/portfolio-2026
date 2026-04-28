@@ -15,35 +15,44 @@
   --warm-mid: #8C6A4E;
 }
 
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   font-family: 'DM Sans', sans-serif;
   background: var(--cream);
   color: var(--ink);
+
+  display: flex;
+  flex-direction: column;
 }
 
-.back{
-  top:24px;
-  left:24px;
-  z-index:999;
-  font-size:.8rem;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  text-decoration:none;
-  color:var(--cream);
-  z-index: 100;
+.page-content {
+  flex: 1;
 }
 
-/* HEADER — tightened */
+.back {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  font-size: .8rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--ink);
+}
+
 .header {
-  padding: 50px 48px 0px; /* reduced bottom padding too */
+  padding: 50px 48px 20px;
   border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .header h1 {
   font-family: 'DM Serif Display', serif;
   font-size: clamp(3rem,5vw,5rem);
-  margin: 0 0 6px 0; 
+  margin: 0 0 6px 0;
 }
 
 .header p {
@@ -51,42 +60,61 @@ body {
   color: var(--warm-mid);
   line-height: 1.7;
   font-weight: 300;
-  margin: 0; 
+  margin: 0;
 }
 
 .single-image {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: -160px; 
-  padding-bottom: 60px;
 }
 
 .single-image img {
-  max-height: 100vh;
+  max-height: 35vh;
   object-fit: contain;
-  transform: rotate(90deg);
   transform-origin: center;
   display: block;
 }
+
+footer {
+  background: var(--ink);
+  padding: 32px 48px;
+  display: flex;
+  align-items: center;
+}
+
+footer span {
+  font-size: 0.8rem;
+  color: rgba(245,241,232,0.3);
+}
+
 </style>
 </head>
 
 <body>
 
-<a href="index.html" class="back">← Back</a>
+<div class="page-content">
 
-<div class="header">
-  <h1>Patterns<br><em>Simplified</em></h1>
-  <p>
-    A series of geometric reinterpretations of traditional Indian textile borders. 
-    Inspired by zari embroidery and block-printed saris, each pattern distills ornament into rhythm, symmetry, and restraint.
-  </p>
+  <a href="index.html" class="back">← Back</a>
+
+  <div class="header">
+    <h1>Patterns<br><em>Simplified</em></h1>
+    <p>
+      A series of geometric reinterpretations of traditional Indian textile borders. 
+      Inspired by zari embroidery and block-printed saris, each pattern distills ornament into rhythm, symmetry, and restraint.
+    </p>
+  </div>
+
+  <br> <br> 
+
+  <div class="single-image">
+    <img src="images/patterns-simplified/pattern.png" alt="Pattern Simplified">
+  </div>
+
 </div>
 
-<div class="single-image">
-  <img src="images/patterns-simplified/pattern.png" alt="Pattern Simplified">
-</div>
+<footer>
+  <span>© 2026 Sonia Goveas</span>
+</footer>
 
 </body>
 </html>
