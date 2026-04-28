@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>San Francisco Icons</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #F5F1E8;
+  --ink: #1A1410;
+  --rust: #C4471A;
+  --warm-mid: #8C6A4E;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+/* BACK BUTTON */
+.back {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  z-index: 100;
+}
+
+/* HEADER */
+.header {
+  padding: 120px 48px 40px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3rem,5vw,5rem);
+  margin-bottom: 16px;
+}
+
+.header p {
+  max-width: 600px;
+  color: var(--warm-mid);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  padding: 80px 48px;
+}
+
+.icons img {
+  width: 100%;
+  max-width: 700px; 
+  height: auto;
+  display: block;
+  border: 1px solid rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.icons img:hover {
+  transform: scale(1.02);
+}
+
+
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back">← Back</a>
+
+<div class="header">
+  <h1>San Francisco<br><em>Icons</em></h1>
+  <p>
+    A three-piece illustration series capturing neighborhood identity through color, light, and cultural symbolism. 
+    Japantown, Chinatown, and the Richmond are reinterpreted through a unified nighttime palette.
+  </p>
+</div>
+
+<div class="icons">
+  <img src="images/san-francisco-icons/icons.png" alt="San Francisco Icons">
+</div>
+
+<div class="lightbox" id="lightbox">
+  <img src="" id="lightbox-img">
+</div>
+
+</body>
+</html>

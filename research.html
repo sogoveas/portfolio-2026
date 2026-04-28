@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EEG Autism Research</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --cream:#F5F1E8;
+  --ink:#1A1410;
+  --rust:#C4471A;
+  --warm:#8C6A4E;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+}
+
+/* BACK */
+.back{
+  position:fixed;
+  top:24px;
+  left:24px;
+  font-size:.8rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:var(--ink);
+  z-index:100;
+}
+
+/* HEADER */
+.header{
+  padding:100px 48px 30px; /* slightly tighter */
+  border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
+.header h1{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(3rem,5vw,5rem);
+  margin-bottom:12px;
+}
+
+.header p{
+  max-width:640px;
+  color:var(--warm);
+  line-height:1.7;
+  font-weight:300;
+}
+
+.poster-section{
+  min-height:calc(100vh - 240px); /* fills remaining screen */
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:40px 24px 80px;
+}
+
+.poster{
+  display:flex;
+  justify-content:center;
+  width:100%;
+}
+
+.poster img{
+  width:100%;
+  max-width:900px;
+  height:auto;
+  display:block;
+  margin:0 auto;
+  border:1px solid rgba(0,0,0,0.08);
+  background:white;
+  box-shadow:0 20px 60px rgba(0,0,0,0.08); /* subtle polish */
+}
+
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back">← Back</a>
+
+<div class="header">
+  <h1>EEG Autism<br><em>Research</em></h1>
+  <p>
+    A computational framework using early EEG signals and machine learning to detect Autism Spectrum Disorder, 
+    model symptom severity, and uncover hidden neurodevelopmental patterns before behavioral diagnosis.
+  </p>
+</div>
+
+<!-- POSTER -->
+<div class="poster-section">
+  <div class="poster">
+    <img src="images/research/rethinking-autism-diagnosis.png" alt="EEG Autism Research Poster">
+  </div>
+</div>
+
+</body>
+</html>

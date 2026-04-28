@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume — Sonia Goveas</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --cream: #F5F1E8;
+      --ink: #1A1410;
+      --rust: #915779;
+      --warm-mid: #8C6A4E;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 48px; background: var(--cream);
+      border-bottom: 1px solid rgba(26,20,16,0.1);
+    }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 36px; list-style: none; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+    .nav-links a:hover { color: var(--rust); }
+
+    .page-header {
+      padding: 140px 48px 60px;
+      border-bottom: 1px solid rgba(26,20,16,0.12);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: flex-end;
+      gap: 40px;
+    }
+    .page-header h1 { font-family: 'DM Serif Display', serif; font-size: clamp(3rem, 5vw, 5rem); color: var(--ink); line-height: 0.95; }
+    .page-header h1 em { font-style: italic; color: var(--rust); }
+    .header-meta { text-align: right; }
+    .header-meta p { font-size: 0.85rem; color: var(--warm-mid); line-height: 1.8; font-weight: 300; }
+    .header-meta a { color: var(--rust); text-decoration: none; font-weight: 500; }
+
+    .resume-body { display: grid; grid-template-columns: 280px 1fr; min-height: 100vh; }
+
+    .sidebar {
+      padding: 60px 40px;
+      border-right: 1px solid rgba(26,20,16,0.12);
+      background: #EEE9DC;
+    }
+    .sidebar-section { margin-bottom: 48px; }
+    .sidebar-label {
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--rust); font-weight: 500; margin-bottom: 16px;
+    }
+    .sidebar-section p { font-size: 0.88rem; color: var(--ink); line-height: 1.7; font-weight: 300; }
+    .sidebar-section a { color: var(--rust); text-decoration: none; display: block; font-size: 0.88rem; margin-bottom: 6px; font-weight: 400; }
+    .sidebar-section a:hover { text-decoration: underline; }
+    .skill-tag {
+      display: inline-block; font-size: 0.75rem; color: var(--ink); border: 1px solid rgba(26,20,16,0.2);
+      padding: 4px 10px; margin: 3px 3px 3px 0; font-weight: 400;
+    }
+    .cert-item { margin-bottom: 14px; }
+    .cert-item strong { font-size: 0.85rem; font-weight: 500; display: block; }
+    .cert-item span { font-size: 0.78rem; color: var(--warm-mid); }
+
+    .main-content { padding: 60px 56px; }
+    .section { margin-bottom: 60px; }
+    .section-heading {
+      font-family: 'DM Serif Display', serif; font-size: 1.8rem;
+      color: var(--ink); margin-bottom: 32px;
+      padding-bottom: 14px; border-bottom: 1px solid rgba(26,20,16,0.12);
+    }
+    .edu-block { margin-bottom: 8px; }
+    .edu-block strong { font-size: 1rem; font-weight: 500; }
+    .edu-block .degree { font-size: 0.88rem; color: var(--warm-mid); margin-top: 4px; font-weight: 300; }
+    .edu-block .date { font-size: 0.78rem; color: var(--rust); font-weight: 500; letter-spacing: 0.05em; }
+
+    .exp-block { margin-bottom: 36px; }
+    .exp-header { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+    .exp-header h3 { font-size: 1rem; font-weight: 500; }
+    .exp-header .date { font-size: 0.78rem; color: var(--warm-mid); font-weight: 300; }
+    .exp-company { font-size: 0.82rem; color: var(--rust); font-weight: 500; margin-bottom: 10px; }
+    .exp-block ul { padding-left: 18px; }
+    .exp-block li { font-size: 0.88rem; color: var(--warm-mid); line-height: 1.7; font-weight: 300; margin-bottom: 4px; }
+
+    .project-block { margin-bottom: 20px; }
+    .project-block strong { font-weight: 500; font-size: 0.9rem; }
+    .project-block p { font-size: 0.85rem; color: var(--warm-mid); line-height: 1.6; font-weight: 300; margin-top: 4px; }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; }
+      .nav-links { gap: 16px; }
+      .page-header { padding: 120px 24px 40px; grid-template-columns: 1fr; }
+      .header-meta { text-align: left; }
+      .resume-body { grid-template-columns: 1fr; }
+      .sidebar { border-right: none; border-bottom: 1px solid rgba(26,20,16,0.12); }
+      .main-content { padding: 40px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">SG</a>
+    <ul class="nav-links">
+      <li><a href="index.html#work">Work</a></li>
+      <li><a href="index.html#experience">Experience</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-header">
+    <h1>Sonia<br><em>Goveas</em></h1>
+    <div class="header-meta">
+      <p>
+        <a href="mailto:sogoveas@gmail.com">sogoveas@gmail.com</a><br>
+        <a href="tel:4085077063">(408) 507-7063</a><br>
+        <a href="https://github.com/sogoveas" target="_blank">github.com/sogoveas</a><br>
+        <a href="https://linkedin.com/in/sonia-goveas/" target="_blank">linkedin.com/in/sonia-goveas</a>
+      </p>
+    </div>
+  </div>
+
+  <div class="resume-body">
+    <aside class="sidebar">
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">Education</p>
+        <p><strong>University of San Francisco</strong></p>
+        <p>B.S. Data &amp; Computer Science<br>Minor in Design</p>
+        <p style="color: var(--rust); font-size: 0.78rem; margin-top: 6px; font-weight: 500;">May 2026</p>
+      </div>
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">Programming</p>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Java</span>
+        <span class="skill-tag">JavaScript</span>
+        <span class="skill-tag">TypeScript</span>
+        <span class="skill-tag">R</span>
+        <span class="skill-tag">MySQL</span>
+      </div>
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">Design & Web</p>
+        <span class="skill-tag">Figma</span>
+        <span class="skill-tag">Illustrator</span>
+        <span class="skill-tag">Photoshop</span>
+        <span class="skill-tag">InDesign</span>
+        <span class="skill-tag">Angular</span>
+        <span class="skill-tag">Flask</span>
+        <span class="skill-tag">HTML/CSS</span>
+      </div>
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">Data & Analysis</p>
+        <span class="skill-tag">Tableau</span>
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">scikit-learn</span>
+        <span class="skill-tag">matplotlib</span>
+        <span class="skill-tag">numpy</span>
+        <span class="skill-tag">RStudio</span>
+      </div>
+
+      <div class="sidebar-section">
+        <p class="sidebar-label">Certifications</p>
+        <div class="cert-item">
+          <strong>Applied ML: Algorithms</strong>
+          <span>LinkedIn Learning</span>
+        </div>
+        <div class="cert-item">
+          <strong>SQL for Data Analysis</strong>
+          <span>LinkedIn Learning</span>
+        </div>
+        <div class="cert-item">
+          <strong>CAP Project Management</strong>
+          <span>Foundations</span>
+        </div>
+      </div>
+
+    </aside>
+
+    <main class="main-content">
+
+      <div class="section">
+        <h2 class="section-heading">Work Experience</h2>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>Software Developer Intern</h3>
+            <span class="date">Jun – Aug 2025</span>
+          </div>
+          <p class="exp-company">Flex Ltd.</p>
+          <ul>
+            <li>Developed Tableau dashboards with BI and GenAI teams enabling real-time manufacturing insights, cutting manual reporting effort by 30–40%.</li>
+            <li>Engineered SQL database integrations to ensure reliable data pipelines and real-time reporting.</li>
+            <li>Led AI model evaluations to align with company-wide strategic goals.</li>
+          </ul>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>Software Developer Intern</h3>
+            <span class="date">Jun – Aug 2024</span>
+          </div>
+          <p class="exp-company">Flex Ltd.</p>
+          <ul>
+            <li>Automated manufacturing software, increasing operational efficiency by ~20%.</li>
+            <li>Built backend systems using Python and SQL to support real-time reporting for 1,100+ employees.</li>
+          </ul>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>Software Developer Intern</h3>
+            <span class="date">Jun – Aug 2023</span>
+          </div>
+          <p class="exp-company">Flex Ltd.</p>
+          <ul>
+            <li>Developed an automated Work Order Variance tool, reducing processing time by 80%.</li>
+            <li>Improved web UX using Angular, CSS, and HTML for a more responsive interface.</li>
+          </ul>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>Performing Arts Dept. Student Assistant</h3>
+            <span class="date">Sep 2023 – Present</span>
+          </div>
+          <p class="exp-company">University of San Francisco</p>
+          <ul>
+            <li>Designed marketing materials (flyers, social media) reaching 3,000+ students.</li>
+            <li>Coordinated event logistics and provided administrative support for performances.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-heading">Projects</h2>
+        <div class="project-block">
+          <strong> Rethinking Autism Detection: A Neurophysiological Approach Using Early EEG Signals (2026)</strong>
+          <p>Early EEG-based ASD detection framework using nonlinear dynamical features, SVM classification, and TS-NMF clustering to identify severity and 4 interpretable neurodevelopmental subtypes in infants (3–36 months).</p>
+        </div>
+        <div class="project-block">
+          <strong>Glanceback Website (2025)</strong>
+          <p>Built a website using Maya Mann's Glanceback to mimic a social media platform with interactive scrolling and daily photo posts, exploring digital memory and connection.</p>
+        </div>
+
+        <div class="project-block">
+          <strong>Suicide and Homicide Mortality Rates Analysis (2024)</strong>
+          <p>Visualized links between income level, GDP, and mortality across 50+ countries to highlight public health factors using RStudio and matplotlib.</p>
+        </div>
+
+        <div class="project-block">
+          <strong>Elevator Simulation (2023)</strong>
+          <p>Designed a Java simulation using queues and priority queues, improving scheduling algorithm efficiency by 20%.</p>
+        </div>
+      </div>
+
+      <div class="section">
+        <h2 class="section-heading">Community</h2>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>Outreach & Marketing Chair</h3>
+            <span class="date">Aug 2023 – Present</span>
+          </div>
+          <p class="exp-company">Association of Women in Mathematics, USF</p>
+          <ul>
+            <li>Coordinated events and panels for women in mathematics, supporting growth and networking.</li>
+            <li>Created marketing strategies and designs that boosted attendance by 50%.</li>
+          </ul>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-header">
+            <h3>Member</h3>
+            <span class="date">Aug 2022 – Present</span>
+          </div>
+          <p class="exp-company">Women in Tech, USF</p>
+          <ul>
+            <li>Led mentorships, workshops, and networking events to empower womxn in tech.</li>
+            <li>Organized events to improve representation and connect members with industry leaders.</li>
+          </ul>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+</html>

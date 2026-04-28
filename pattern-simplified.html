@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patterns Simplified</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #F5F1E8;
+  --ink: #1A1410;
+  --rust: #C4471A;
+  --warm-mid: #8C6A4E;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+.back{
+  top:24px;
+  left:24px;
+  z-index:999;
+  font-size:.8rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:var(--cream);
+  z-index: 100;
+}
+
+/* HEADER — tightened */
+.header {
+  padding: 50px 48px 0px; /* reduced bottom padding too */
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3rem,5vw,5rem);
+  margin: 0 0 6px 0; 
+}
+
+.header p {
+  max-width: 600px;
+  color: var(--warm-mid);
+  line-height: 1.7;
+  font-weight: 300;
+  margin: 0; 
+}
+
+.single-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: -160px; 
+  padding-bottom: 60px;
+}
+
+.single-image img {
+  max-height: 100vh;
+  object-fit: contain;
+  transform: rotate(90deg);
+  transform-origin: center;
+  display: block;
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back">← Back</a>
+
+<div class="header">
+  <h1>Patterns<br><em>Simplified</em></h1>
+  <p>
+    A series of geometric reinterpretations of traditional Indian textile borders. 
+    Inspired by zari embroidery and block-printed saris, each pattern distills ornament into rhythm, symmetry, and restraint.
+  </p>
+</div>
+
+<div class="single-image">
+  <img src="images/patterns-simplified/pattern.png" alt="Pattern Simplified">
+</div>
+
+</body>
+</html>

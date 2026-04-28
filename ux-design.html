@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Lynn Hershman Leeson — Net Art Feature</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --cream:#F5F1E8;
+  --ink:#1A1410;
+  --rust:#915779;
+  --warm:#8C6A4E;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  overflow-x:hidden;
+}
+
+.back{
+  position:fixed;
+  top:24px;
+  left:24px;
+  z-index:100;
+  font-size:.8rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  text-decoration:none;
+  color:var(--ink);
+}
+
+/* SECTIONS */
+.section{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:80px 10vw;
+  opacity:.3;
+  transform:translateY(40px);
+  transition:all .8s ease;
+}
+
+.section.active{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.container{
+  max-width:1100px;
+  width:100%;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+/* HERO */
+.hero{
+  background:var(--ink);
+  color:var(--cream);
+}
+
+.hero h1{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(3rem,6vw,6rem);
+  line-height:.95;
+}
+
+.hero p{
+  color:rgba(245,241,232,.7);
+  margin-top:20px;
+  line-height:1.7;
+}
+
+.hero img{
+  width:100%;
+  border-radius:12px;
+  object-fit:cover;
+}
+
+/* FEATURE */
+.feature h2{
+  font-family:'DM Serif Display',serif;
+  font-size:3rem;
+  margin-bottom:16px;
+}
+
+.feature p{
+  color:var(--warm);
+  line-height:1.7;
+}
+
+.feature img{
+  width:100%;
+  border-radius:12px;
+  object-fit:cover;
+  transition:transform .6s ease;
+}
+
+.section.active img{
+  transform:scale(1.05);
+}
+
+/* STRIP */
+.strip{
+  background:#111;
+  color:var(--cream);
+  text-align:center;
+  flex-direction:column;
+}
+
+.strip h2{
+  font-size:2rem;
+  font-family:'DM Serif Display',serif;
+  margin-bottom:10px;
+}
+
+.strip p{
+  max-width:600px;
+  opacity:.7;
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .container{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+}
+
+
+footer {
+      background: var(--ink);
+      padding: 32px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer span {
+      font-size: 0.8rem;
+      color: rgba(245,241,232,0.3);
+    }
+    .footer-socials { display: flex; gap: 20px; }
+    .footer-socials a { color: rgba(245,241,232,0.4); font-size: 1rem; transition: color 0.2s; text-decoration: none; }
+    .footer-socials a:hover { color: var(--rust); }
+</style>
+</head>
+
+<body>
+
+<a class="back" href="index.html" style="color: var(--cream);">← Back</a>
+
+<!-- HERO -->
+<section class="section hero active">
+  <div class="container">
+    <div>
+      <h1>Lynn Hershman<br>Leeson</h1>
+      <p>Net-art systems exploring identity, surveillance, and digital embodiment.</p>
+    </div>
+    <img src="images/lynn/homepage.jpeg" />
+  </div>
+</section>
+
+<!-- SYNTHIA -->
+<section class="section feature">
+  <div class="container">
+    <div>
+      <h2>Synthia Stock Ticker</h2>
+      <p>Identity behaves like financial data — unstable, reactive, and continuously revalued.</p>
+    </div>
+    <img src="images/lynn/stock-ticker.jpeg" />
+  </div>
+</section>
+
+<!-- CYCLES -->
+<section class="section feature">
+  <div class="container">
+    <img src="images/lynn/home-front.jpeg" />
+    <div>
+      <h2>Cycles of Contention</h2>
+      <p>Recursive systems of conflict and feedback loops embedded in social structures.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DOLLIE -->
+<section class="section feature">
+  <div class="container">
+    <div>
+      <h2>The Dollie Clone</h2>
+      <p>Fragmented digital identity through replicated avatar systems and synthetic selfhood.</p>
+    </div>
+    <img src="images/lynn/dollie-clone.jpeg" />
+  </div>
+</section>
+
+<section class="section strip">
+  <h2>Net Art as System</h2>
+  <p>Hershman Leeson anticipates AI identity systems, surveillance logic, and synthetic selfhood.</p>
+</section>
+
+
+<section class="section hero active">
+  <div class="container">
+    <div>
+      <h1>Schrödinger’s Cat <br>ReCAPTCHA</h1>
+      <p>The system begins in a neutral observation state. Identity is undefined.</p>
+    </div>
+    <img src="images/captcha/opening.png" />
+  </div>
+</section>
+
+
+<section class="section feature">
+  <div class="container">
+    <div>
+      <h2>The Box State</h2>
+      <p>Inside the sealed system: overlapping signals, uncertainty, and probabilistic collapse.</p>
+    </div>
+    <img src="images/captcha/cat-in-box.png" />
+  </div>
+</section>
+
+<section class="section feature">
+  <div class="container">
+    <div>
+      <h2>Access Denied</h2>
+      <p>The system resolves incorrectly. Verification fails by design.</p>
+    </div>
+    <img src="images/captcha/access-denied.png" />
+  </div>
+</section> 
+
+<section class="section strip">
+  <h2>System Output</h2>
+  <p>The system outputs a probabilistic identity based on the available data, but remains fundamentally uncertain.</p>
+</section>
+
+<script>
+const sections = document.querySelectorAll('.section');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting){
+      e.target.classList.add('active');
+    }
+  });
+},{threshold:0.5});
+
+sections.forEach(s => observer.observe(s));
+</script>
+
+ <footer>
+    <span>© 2026 Sonia Goveas</span>
+    <div class="footer-socials">
+      <a href="https://linkedin.com/in/sonia-goveas/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/sogoveas" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+
+</body>
+</html>

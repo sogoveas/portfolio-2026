@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Architecture Abstracted</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --cream: #F5F1E8;
+  --ink: #1A1410;
+  --rust: #C4471A;
+  --warm-mid: #8C6A4E;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+/* BACK BUTTON */
+.back {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  z-index: 100;
+}
+
+/* HEADER */
+.header {
+  padding: 120px 48px 40px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.header h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3rem,5vw,5rem);
+  margin-bottom: 16px;
+}
+
+.header p {
+  max-width: 600px;
+  color: var(--warm-mid);
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 60px 48px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: #fff;
+}
+
+.grid img:hover {
+  transform: scale(1.04);
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.lightbox.active {
+  display: flex;
+}
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="back">← Back</a>
+
+<div class="header">
+  <h1>Architecture<br><em>Abstracted</em></h1>
+  <p>
+    A 9-piece Illustrator series capturing USF campus architecture through a constrained five-color palette. 
+    Inspired by San Francisco fog, each piece reduces structure into shape, rhythm, and atmosphere.
+  </p>
+</div>
+
+<div class="grid">
+  <img src="images/campus-architecture/arch1.jpg">
+  <img src="images/campus-architecture/arch2.jpg">
+  <img src="images/campus-architecture/arch3.jpg">
+  <img src="images/campus-architecture/arch4.jpg">
+  <img src="images/campus-architecture/arch5.jpg">
+  <img src="images/campus-architecture/arch6.jpg">
+  <img src="images/campus-architecture/arch7.jpg">
+  <img src="images/campus-architecture/arch8.jpg">
+  <img src="images/campus-architecture/arch9.jpg">
+</div>
+
+<div class="lightbox" id="lightbox">
+  <img src="" id="lightbox-img">
+</div>
+
+<script>
+const images = document.querySelectorAll(".grid img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+
+images.forEach(img => {
+  img.addEventListener("click", () => {
+    lightbox.classList.add("active");
+    lightboxImg.src = img.src;
+  });
+});
+
+lightbox.addEventListener("click", () => {
+  lightbox.classList.remove("active");
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonia Goveas</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream: #F5F1E8;
+      --ink: #1A1410;
+      --rust: #915779;
+      --gold: #D4A017;
+      --warm-mid: #8C6A4E;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 48px;
+      mix-blend-mode: normal;
+    }
+    .nav-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--rust); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+    }
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 120px 48px 80px;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rust);
+      font-weight: 500;
+      margin-bottom: 24px;
+    }
+    .hero-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(4rem, 7vw, 7.5rem);
+      line-height: 0.9;
+      color: var(--ink);
+      margin-bottom: 32px;
+    }
+    .hero-name em {
+      font-style: italic;
+      color: var(--rust);
+    }
+    .hero-tagline {
+      font-size: 1.1rem;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--warm-mid);
+      max-width: 400px;
+      margin-bottom: 48px;
+    }
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--ink);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .hero-cta:hover { background: var(--rust); transform: translateX(4px); }
+
+    .hero-right {
+      background: var(--ink);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-graphic {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+    }
+    .hero-big-text {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(5rem, 10vw, 11rem);
+      line-height: 0.85;
+      color: rgba(255,255,255,0.06);
+      text-align: center;
+      user-select: none;
+      letter-spacing: -0.02em;
+    }
+    .hero-big-text.accent { color: rgba(196,71,26,0.25); }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 40px;
+      left: 48px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+    }
+    .scroll-line {
+      width: 40px;
+      height: 1px;
+      background: var(--warm-mid);
+    }
+
+    /* ABOUT STRIP */
+    .about-strip {
+      background: var(--rust);
+      padding: 80px 48px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-strip h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      color: var(--cream);
+      line-height: 1.05;
+    }
+    .about-strip h2 em { font-style: italic; color: rgba(245,241,232,0.6); }
+    .about-body { color: rgba(245,241,232,0.9); font-size: 1.05rem; line-height: 1.8; font-weight: 300; }
+    .about-body strong { color: var(--cream); font-weight: 500; }
+
+    /* WORK */
+    .section-header {
+      padding: 100px 48px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      border-bottom: 1px solid rgba(26,20,16,0.12);
+    }
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+      font-weight: 500;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      color: var(--ink);
+      line-height: 1.05;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .project-item {
+      border-right: 1px solid rgba(26,20,16,0.12);
+      border-bottom: 1px solid rgba(26,20,16,0.12);
+      padding: 0;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+    .project-item:nth-child(even) { border-right: none; }
+
+    .project-color-block {
+      height: 280px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+    }
+    .project-item:hover .project-color-block { transform: scale(1.02); }
+
+    .proj-1 .project-color-block { background: #2D1F3D; }
+    .proj-2 .project-color-block { background: #14124b; }
+    .proj-3 .project-color-block { background: #592727; }
+    .proj-4 .project-color-block { background: #1A2E1A; }
+    .proj-5 .project-color-block { background: #2E3A59; }
+
+    .project-number {
+      position: absolute;
+      top: 24px; right: 24px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 5rem;
+      color: rgba(255,255,255,0.08);
+      line-height: 1;
+      user-select: none;
+    }
+    .project-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.1);
+      padding: 6px 12px;
+      font-weight: 500;
+    }
+
+    .project-info {
+      padding: 32px;
+    }
+    .project-info h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .project-info p {
+      font-size: 0.9rem;
+      color: var(--warm-mid);
+      line-height: 1.6;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+    .project-link {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--rust);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.2s;
+    }
+    .project-item:hover .project-link { gap: 14px; }
+
+    /* SKILLS */
+    .skills-section {
+      background: var(--ink);
+      padding: 100px 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+    .skills-left h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 4vw, 3.5rem);
+      color: var(--cream);
+      line-height: 1.05;
+      margin-bottom: 24px;
+    }
+    .skills-left h2 em { font-style: italic; color: var(--rust); }
+    .skills-left p {
+      color: rgba(245,241,232,0.6);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    .skills-right {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .skill-group h4 {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--rust);
+      font-weight: 500;
+      margin-bottom: 14px;
+    }
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .pill {
+      font-size: 0.82rem;
+      color: rgba(245,241,232,0.8);
+      border: 1px solid rgba(245,241,232,0.15);
+      padding: 6px 14px;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+    }
+
+    /* EXPERIENCE */
+    .experience-section {
+      padding: 100px 48px;
+    }
+    .exp-list {
+      margin-top: 60px;
+      display: flex;
+      flex-direction: column;
+    }
+    .exp-item {
+      display: grid;
+      grid-template-columns: 200px 1fr 180px;
+      gap: 40px;
+      padding: 40px 0;
+      border-bottom: 1px solid rgba(26,20,16,0.12);
+      align-items: start;
+    }
+    .exp-date {
+      font-size: 0.8rem;
+      color: var(--warm-mid);
+      font-weight: 400;
+      padding-top: 4px;
+    }
+    .exp-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .exp-company {
+      font-size: 0.85rem;
+      color: var(--rust);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+    .exp-desc {
+      font-size: 0.9rem;
+      color: var(--warm-mid);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    .exp-impact {
+      background: #F0EBE0;
+      padding: 16px 20px;
+      text-align: center;
+    }
+    .exp-impact-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2rem;
+      color: var(--rust);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .exp-impact-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+      font-weight: 500;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      background: var(--rust);
+      padding: 10px 48px;
+      text-align: center;
+    }
+    .contact-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(3rem, 6vw, 6rem);
+      color: var(--cream);
+      line-height: 0.95;
+      margin-bottom: 40px;
+    }
+    .contact-section h2 em { font-style: italic; color: rgba(245,241,232,0.4); }
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+    }
+    .contact-link {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(245,241,232,0.4);
+      padding-bottom: 4px;
+      transition: border-color 0.2s;
+    }
+    .contact-link:hover { border-color: var(--cream); }
+
+    footer {
+      background: var(--ink);
+      padding: 32px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    footer span {
+      font-size: 0.8rem;
+      color: rgba(245,241,232,0.3);
+    }
+    .footer-socials { display: flex; gap: 20px; }
+    .footer-socials a { color: rgba(245,241,232,0.4); font-size: 1rem; transition: color 0.2s; text-decoration: none; }
+    .footer-socials a:hover { color: var(--rust); }
+
+    @media (max-width: 768px) {
+      .hero, .about-strip, .projects-grid, .skills-section { grid-template-columns: 1fr; }
+      .hero-right { height: 260px; }
+      nav { padding: 16px 24px; }
+      .nav-links { gap: 20px; }
+      .hero-left, .about-strip, .experience-section, .contact-section { padding-left: 24px; padding-right: 24px; }
+      .section-header { padding: 60px 24px 40px; flex-direction: column; gap: 12px; align-items: flex-start; }
+      .exp-item { grid-template-columns: 1fr; gap: 12px; }
+      .skills-section { padding: 60px 24px; }
+      footer { padding: 24px; flex-direction: column; gap: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">SG</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Data Science · Design · Development</p>
+      <h1 class="hero-name">Sonia<br><em>Goveas</em></h1>
+      <p class="hero-tagline">Building things that are <strong>data-driven</strong> and <strong>design-focused</strong></p>
+      <a href="#work" class="hero-cta">View My Work →</a>
+    </div>
+    <div class="hero-right">
+      <div class="hero-graphic">
+        <div class="hero-big-text">DATA</div>
+        <div class="hero-big-text accent" style="color: #915779;">+</div>
+        <div class="hero-big-text">DESIGN</div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-strip">
+    <h2>About<br><em>Me</em></h2>
+    <p class="about-body">
+      I'm a <strong>Data &amp; Computer Science student at the University of San Francisco</strong>, graduating May 2026, with a minor in Design. I sit at the intersection of analytical rigor and visual craft — whether that means engineering SQL pipelines for 1,100+ employees at Flex Ltd., or hand-rendering architectural illustrations in Adobe Illustrator with a five-color fog-inspired palette. I believe the best products are built by people who can do both.
+    </p>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="section-header">
+      <div>
+        <p class="section-label">Selected Work</p>
+        <h2 class="section-title">Projects &<br>Design Work</h2>
+      </div>
+    </div>
+
+    <div class="projects-grid">
+
+      <a href="architecture-abstracted.html" class="project-item proj-1">
+        <div class="project-color-block">
+          <div class="project-number">01</div>
+          <span class="project-tag">Illustration</span>
+        </div>
+        <div class="project-info">
+          <h3>Architecture Abstracted</h3>
+          <p>9-piece Illustrator series capturing USF campus architecture in a fog-inspired 5-color palette. Quiet, quintessentially San Francisco.</p>
+          <span class="project-link">View Series →</span>
+        </div>
+      </a>
+
+      <a href="sf-icons.html" class="project-item proj-2">
+        <div class="project-color-block">
+          <div class="project-number">02</div>
+          <span class="project-tag">Illustration</span>
+        </div>
+        <div class="project-info">
+          <h3>San Francisco Icons</h3>
+          <p>Three neighborhood icons — Japantown, Chinatown, Richmond — unified by a warm night-time palette celebrating cultural coexistence.</p>
+          <span class="project-link">View Project →</span>
+        </div>
+      </a>
+
+      <a href="pattern-simplified.html" class="project-item proj-3">
+        <div class="project-color-block">
+          <div class="project-number">03</div>
+          <span class="project-tag">Pattern Design</span>
+        </div>
+        <div class="project-info">
+          <h3>Patterns Simplified</h3>
+          <p>Geometric reinterpretations of Indian textile borders — zari embroidery and block-printed saris distilled to rhythm, symmetry, and restraint.</p>
+          <span class="project-link">View Project →</span>
+        </div>
+      </a>
+
+      <a href="ux-design.html" class="project-item proj-4">
+        <div class="project-color-block">
+          <div class="project-number">04</div>
+          <span class="project-tag">Web Design</span>
+        </div>
+        <div class="project-info">
+          <h3>Web Design Work</h3>
+          <p>Front-end projects built with HTML, CSS, JavaScript, and p5.js — from a net art website dedicated to Lynn Hershman Leeson's work to a reimagined version of CAPTCHA social platform to responsive UX improvements at Flex.</p>
+          <span class="project-link">View Work →</span>
+        </div>
+      </a>
+
+       <a href="research.html" class="project-item proj-5">
+        <div class="project-color-block">
+          <div class="project-number">05</div>
+          <span class="project-tag">Research</span>
+        </div>
+        <div class="project-info">
+          <h3>Research Projects</h3>
+          <p>A machine learning pipeline analyzing infant EEG time-series data through frequency decomposition and nonlinear dynamical features to enable early ASD detection, severity scoring, and subtype identification.</p>
+          <span class="project-link">View Work →</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <div class="skills-section">
+    <div class="skills-left">
+      <h2>Skills &<br><em>Tools</em></h2>
+      <p>A full-stack capability set — from building machine learning models to designing the interface that presents them.</p>
+    </div>
+    <div class="skills-right">
+      <div class="skill-group">
+        <h4>Programming</h4>
+        <div class="skill-pills">
+          <span class="pill">Python</span>
+          <span class="pill">Java</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">TypeScript</span>
+          <span class="pill">R</span>
+          <span class="pill">MySQL</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Design & Front-end</h4>
+        <div class="skill-pills">
+          <span class="pill">Figma</span>
+          <span class="pill">Adobe Illustrator</span>
+          <span class="pill">Photoshop</span>
+          <span class="pill">InDesign</span>
+          <span class="pill">Angular</span>
+          <span class="pill">HTML / CSS</span>
+          <span class="pill">p5.js</span>
+          <span class="pill">Flask</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Data & Analysis</h4>
+        <div class="skill-pills">
+          <span class="pill">Tableau</span>
+          <span class="pill">Power BI</span>
+          <span class="pill">Pandas</span>
+          <span class="pill">scikit-learn</span>
+          <span class="pill">matplotlib</span>
+          <span class="pill">RStudio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="experience-section">
+    <div style="margin-bottom: 12px;">
+      <h2 class="section-title">Experience</h2>
+    </div>
+    <div class="exp-list">
+        <div class="exp-item">
+        <div class="exp-date">Sept 2023 – present </div>
+        <div>
+          <p class="exp-title">Performing Arts and Social Justice Department Student Assistant</p>
+          <p class="exp-company">University of San Francisco</p>
+          <p class="exp-desc">Designed marketing materials to promote department events, including flyers and social media content, reaching 3000+ students. Coordinated event logistics and provided administrative support to ensure successful performances and departmental operations.</p>
+        </div>
+        <div class="exp-impact">
+          <div class="exp-impact-num">3k+</div>
+          <div class="exp-impact-label">Students reached</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Jun – Aug 2025</div>
+        <div>
+          <p class="exp-title">Software Developer Intern</p>
+          <p class="exp-company">Flex Ltd.</p>
+          <p class="exp-desc">Built Tableau dashboards with BI and GenAI teams enabling real-time manufacturing insights. Engineered SQL database integrations and led AI model evaluations aligned to company strategy.</p>
+        </div>
+        <div class="exp-impact">
+          <div class="exp-impact-num">30–40%</div>
+          <div class="exp-impact-label">Reporting effort cut</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Jun – Aug 2024</div>
+        <div>
+          <p class="exp-title">Software Developer Intern</p>
+          <p class="exp-company">Flex Ltd.</p>
+          <p class="exp-desc">Automated manufacturing software and built Python + SQL backend systems supporting real-time reporting for 1,100+ employees.</p>
+        </div>
+        <div class="exp-impact">
+          <div class="exp-impact-num">~20%</div>
+          <div class="exp-impact-label">Operational efficiency gain</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Jun – Aug 2023</div>
+        <div>
+          <p class="exp-title">Software Developer Intern</p>
+          <p class="exp-company">Flex Ltd.</p>
+          <p class="exp-desc">Developed an automated Work Order Variance tool. Improved web UX using Angular, CSS, and HTML.</p>
+        </div>
+        <div class="exp-impact">
+          <div class="exp-impact-num">80%</div>
+          <div class="exp-impact-label">Processing time saved</div>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-date">Sep 2023 – Present</div>
+        <div>
+          <p class="exp-title">Marketing & Outreach Chair</p>
+          <p class="exp-company">Association of Women in Mathematics, USF</p>
+          <p class="exp-desc">Designed marketing materials (flyers, social media) reaching 3,000+ students. Coordinated events and boosted attendance by 50% through creative strategy.</p>
+        </div>
+        <div class="exp-impact">
+          <div class="exp-impact-num">3K+</div>
+          <div class="exp-impact-label">Students reached</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="contact" class="contact-section">
+    <div class="contact-links">
+      <a href="mailto:sogoveas@gmail.com" class="contact-link">Email</a>
+      <a href="https://linkedin.com/in/sonia-goveas/" target="_blank" class="contact-link">LinkedIn</a>
+      <a href="https://github.com/sogoveas" target="_blank" class="contact-link">GitHub</a>
+      <a href="resume.html" class="contact-link">Resume</a>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Sonia Goveas</span>
+    <div class="footer-socials">
+      <a href="https://linkedin.com/in/sonia-goveas/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="https://github.com/sogoveas" target="_blank"><i class="fab fa-github"></i></a>
+    </div>
+  </footer>
+
+</body>
+</html>

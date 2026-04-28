@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sonia Goveas — Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --cream:#F5F1E8;
+  --ink:#1A1410;
+  --rust:#915779;
+  --warm:#8C6A4E;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--cream);
+  color:var(--ink);
+  overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 48px;
+  z-index:100;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--ink);
+  font-size:0.8rem;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  font-weight:500;
+}
+
+nav a:hover{color:var(--rust);}
+
+.section{
+  padding:100px 48px;
+}
+
+.section-title{
+  font-family:'DM Serif Display',serif;
+  font-size:2.8rem;
+  margin-bottom:40px;
+}
+
+.about{
+  border-top:1px solid rgba(0,0,0,0.08);
+}
+
+.about-grid{
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  max-width:1100px;
+}
+
+.about-right p{
+  color:var(--warm);
+  line-height:1.8;
+  font-weight:300;
+  margin-bottom:20px;
+}
+
+
+.card{
+  border:1px solid rgba(0,0,0,0.1);
+  padding:24px;
+  transition:transform .3s ease;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+}
+
+.card h3{
+  font-family:'DM Serif Display',serif;
+  font-size:1.5rem;
+  margin-bottom:10px;
+}
+
+.card p{
+  color:var(--warm);
+  font-weight:300;
+  line-height:1.6;
+  margin-bottom:14px;
+}
+
+.tags{
+  font-size:0.75rem;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  color:var(--rust);
+}
+
+footer{
+  padding:30px 30px;
+  background:var(--ink);
+  color:rgba(255,255,255,0.4);
+  display:flex;
+  align-items:center;
+}
+
+footer a{
+  color:rgba(255,255,255,0.5);
+  text-decoration:none;
+}
+
+footer a:hover{
+  color:var(--rust);
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">SG</a>
+  <div>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#design">Design</a>
+    <a href="resume.html">Resume</a>
+  </div>
+</nav>
+
+
+
+<section id="about" class="section about">
+  <div class="about-grid">
+
+    <div>
+      <h2 class="section-title">About</h2>
+    </div>
+
+    <div class="about-right">
+
+      <p style="font-family:'DM Serif Display'; font-size:1.4rem;">
+        I design systems that make complex data visible, interpretable, and human.
+      </p>
+
+      <p>
+        I am a data science student at the University of San Francisco working at the intersection of computation, design, and systems thinking. My work focuses on building tools and experiences that translate complex data into structured, visual narratives.
+      </p>
+
+      <p>
+        Across both research and design, I am interested in how abstract systems — whether neural signals, social platforms, or digital identities — can be modeled, interpreted, and reimagined through code.
+      </p>
+
+      <p>
+        My recent work explores early autism detection using EEG data, combining nonlinear dynamical features with machine learning models to identify neural patterns before behavioral diagnosis.
+      </p>
+
+    </div>
+
+  </div>
+</section> 
+
+
+
+<footer>
+  <span>© 2026 Sonia Goveas</span>
+</footer>
+
+</body>
+</html>
