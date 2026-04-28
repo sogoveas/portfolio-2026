@@ -17,7 +17,9 @@
       --warm-mid: #8C6A4E;
     }
 
-    html { scroll-behavior: smooth; }
+    html { 
+      scroll-behavior: smooth; 
+    }
 
     body {
       font-family: 'DM Sans', sans-serif;
@@ -26,7 +28,6 @@
       overflow-x: hidden;
     }
 
-    /* NAV */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -44,11 +45,13 @@
       color: var(--ink);
       text-decoration: none;
     }
+
     .nav-links {
       display: flex;
       gap: 36px;
       list-style: none;
     }
+
     .nav-links a {
       font-size: 0.85rem;
       font-weight: 500;
@@ -58,9 +61,11 @@
       text-decoration: none;
       transition: color 0.2s;
     }
-    .nav-links a:hover { color: var(--rust); }
 
-    /* HERO */
+    .nav-links a:hover { 
+      color: var(--rust);
+    }
+
     .hero {
       min-height: 100vh;
       display: grid;
@@ -164,7 +169,6 @@
       background: var(--warm-mid);
     }
 
-    /* ABOUT STRIP */
     .about-strip {
       background: var(--rust);
       padding: 80px 48px;
@@ -173,6 +177,7 @@
       gap: 80px;
       align-items: center;
     }
+
     .about-strip h2 {
       font-family: 'DM Serif Display', serif;
       font-size: clamp(2.5rem, 4vw, 4rem);
@@ -183,7 +188,6 @@
     .about-body { color: rgba(245,241,232,0.9); font-size: 1.05rem; line-height: 1.8; font-weight: 300; }
     .about-body strong { color: var(--cream); font-weight: 500; }
 
-    /* WORK */
     .section-header {
       padding: 100px 48px 60px;
       display: flex;
@@ -338,7 +342,6 @@
       letter-spacing: 0.02em;
     }
 
-    /* EXPERIENCE */
     .experience-section {
       padding: 100px 48px;
     }
@@ -399,7 +402,6 @@
       font-weight: 500;
     }
 
-    /* CONTACT */
     .contact-section {
       background: var(--rust);
       padding: 10px 48px;
@@ -491,15 +493,15 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <a href="about-me.html" style="text-decoration: none; color: inherit;">
   <section class="about-strip">
     <h2>About<br><em>Me</em></h2>
     <p class="about-body">
-      I'm a <strong>Data &amp; Computer Science student at the University of San Francisco</strong>, graduating May 2026, with a minor in Design. I sit at the intersection of analytical rigor and visual craft — whether that means engineering SQL pipelines for 1,100+ employees at Flex Ltd., or hand-rendering architectural illustrations in Adobe Illustrator with a five-color fog-inspired palette. I believe the best products are built by people who can do both.
+      Hi, I'm Sonia! I'm a <strong>Data Science student at the University of San Francisco</strong>, graduating May 2026, with a minor in Design. I sit at the intersection of analytical rigor and visual craft — whether that means engineering SQL pipelines or hand-rendering architectural illustrations in Adobe Illustrator. I believe the best products are built by people who can do both.
     </p>
   </section>
+</a>
 
-  <!-- WORK -->
   <section id="work">
     <div class="section-header">
       <div>
@@ -517,7 +519,7 @@
         </div>
         <div class="project-info">
           <h3>Architecture Abstracted</h3>
-          <p>9-piece Illustrator series capturing USF campus architecture in a fog-inspired 5-color palette. Quiet, quintessentially San Francisco.</p>
+          <p>9-piece Illustrator series capturing USF campus architecture in a fog-inspired five-color palette. Quiet, quintessentially San Francisco.</p>
           <span class="project-link">View Series →</span>
         </div>
       </a>
@@ -573,7 +575,7 @@
     </div>
   </section>
 
-  <!-- SKILLS -->
+
   <div class="skills-section">
     <div class="skills-left">
       <h2>Skills &<br><em>Tools</em></h2>
@@ -618,7 +620,7 @@
     </div>
   </div>
 
-  <!-- EXPERIENCE -->
+
   <section id="experience" class="experience-section">
     <div style="margin-bottom: 12px;">
       <h2 class="section-title">Experience</h2>
